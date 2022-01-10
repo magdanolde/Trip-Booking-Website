@@ -32,6 +32,11 @@ ul {
     width: calc(50% - 20px);
 }
 
+.excursions__item--prototype {
+    display: none;
+}
+
+
 .panel__form {
     background-color: #f4f4f4;
     padding: 20px;
@@ -42,4 +47,8 @@ ul {
     border-bottom: 1px solid #bbb;
     margin-bottom: 20px;
     padding-bottom: 20px;
+}
+
+.summary__item--prototype {
+    display: none;
 }

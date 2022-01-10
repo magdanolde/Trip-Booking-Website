@@ -35,7 +35,7 @@
             <div class="excursions__field excursions__field--submit">
               <input
                 class="excursions__field-input excursions__field-input--submit"
-                value="dodaj do zamówinia"
+                value="dodaj do zamówienia"
                 type="submit"
               />
             </div>
@@ -46,7 +46,7 @@
         <div class="panel__uploader uploader">
           <label class="uploader__label">
             Wybierz plik do wczytania wycieczek:
-            <input class="uploader__input" type="file" accept=".csv" />
+            <input class="uploader__input" type="file" accept=".csv" onchange="handleFiles(this.files)"/>
           </label>
         </div>
         <form class="panel__order order" novalidate>
