@@ -69,9 +69,9 @@ function createExcursion(lines){
 
 // WYBIERANIE WYCIECZEK
 
-ulExcursions.addEventListener("click", getExcursion);
+ulExcursions.addEventListener("click", addToCart);
 
-function getExcursion(e){
+function addToCart (e){
     if(e.target.type === "submit") {
         const newExcursions = document.querySelectorAll(".excursions__item--new");
         e.preventDefault();
@@ -137,7 +137,6 @@ submitBtn.addEventListener("click", validateOrderForm);
 
 function validateOrderForm (e, form) {
     const errors = []
-    console.log(errors);
   
     if (!emailField.value.includes('@')) {
         errors.push(emailField);
@@ -164,14 +163,18 @@ function validateOrderForm (e, form) {
         element.style.border = "2px solid red"
         })
     }
-
+     
     if(errors.length === 0) {
         e.preventDefault();
-        alert("Dziękujemy za złożenie zamówienia o wartości" + " " + `${totalSumSpan.textContent}` + " " + "Szczegóły zamówienia zostały wysłane na adres e-mail: adres@wpisanywformularzu.pl");
+        if(!totalSumSpan.textContent === " ") {
+            alert("Dziękujemy za złożenie zamówienia o wartości" + " " + `${totalSumSpan.textContent}` + " " + "Szczegóły zamówienia zostały wysłane na adres e-mail: adres@wpisanywformularzu.pl");
+        } else {
+            alert("Jeszcze nie wybrales zadnej wycieczki. Zapoznaj sie z naszym katalogiem przez wgranie pliku");
+
+        }
     }
 
 }
-
 
 function changeBackBorderColor(el) {
     el.style.border = "2px inset grey"
