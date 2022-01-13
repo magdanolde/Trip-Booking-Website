@@ -5,13 +5,15 @@ const ulBasket = document.querySelector('.panel__summary');
 // const uploader = document.querySelector('.uploader__input');
 const titles = [];
 const totalPriceArray = [];
+const cart = []
 const totalSumSpan = document.querySelector(".order__total-price-value");
 totalSumSpan.textContent = " ";
 const nameField = document.querySelector("input[name=name]");
-console.log(nameField);
 const surnameField = document.querySelector("input[name=surname]");
 const emailField = document.querySelector("input[name=email]");
 const submitBtn = document.querySelector(".order__field-submit");
+const ulCart = document.querySelector(".panel__summary");
+console.log(ulCart);
 
 // LADOWANIE WYCIECZEK
 
@@ -87,22 +89,26 @@ function addToCart (e){
                 newTitle.textContent = title.textContent;
                     if(!titles.includes(newTitle.textContent)) {
                         titles.push(newTitle.textContent);
+                        cart.push(newBasketItem);
+                        validateExcursionFields(adultField, childField);
+                        const pricesSummary = newBasketItem.querySelector(".summary__prices");
+                        const childPrice = excursion.querySelector("[title=childrenPrice]").textContent;
+                        const adultPrice = excursion.querySelector("[title=adultsPrice]").textContent;
+                        const finalPrice = calculatePriceExcurion(adultField.value, adultPrice, childField.value, childPrice);
+                        totalPriceArray.push(finalPrice);
+                        const totalPrice = calculateSum(totalPriceArray);
+                        totalSumSpan.textContent = totalPrice + "PLN";
+                        pricesSummary.textContent = "Dorośli:" + " " + `${adultField.value}` + "x" + " " + adultPrice + "PLN" + "," + " " + "Dzieci:" + " " + `${childField.value}` + "x" + childPrice + "PLN";
+                        newBasketItem.querySelector(".summary__total-price").textContent = finalPrice + " " + "PLN"
+                        newBasketItem.classList.remove("summary.item--prototype");
+                        newBasketItem.setAttribute('title', `${name}`);
+                        
                     } else {
                         newBasketItem.remove();
                     } 
-                    validateExcursionFields(adultField, childField);
-                    const pricesSummary = newBasketItem.querySelector(".summary__prices");
-                    const childPrice = excursion.querySelector("[title=childrenPrice]").textContent;
-                    const adultPrice = excursion.querySelector("[title=adultsPrice]").textContent;
-                    const finalPrice = calculatePriceExcurion(adultField.value, adultPrice, childField.value, childPrice);
-                    totalPriceArray.push(finalPrice);
-                    const totalPrice = calculateSum(totalPriceArray);
-                    totalSumSpan.textContent = totalPrice + "PLN";
-                    pricesSummary.textContent = "Dorośli:" + " " + `${adultField.value}` + "x" + " " + adultPrice + "PLN" + "," + " " + "Dzieci:" + " " + `${childField.value}` + "x" + childPrice + "PLN";
-                    newBasketItem.querySelector(".summary__total-price").textContent = finalPrice + " " + "PLN";
                     excursion.querySelector("form").reset();
             }
-        })    
+        })   
     }
 }
 
@@ -131,6 +137,19 @@ function calculateSum (arr) {
 
 // USUWANIE WYCIECZEK
 
+ulCart.addEventListener("click", removeExcursion);
+
+function removeExcursion (e) {
+    if (e.target.tagName === 'IMG') {
+            cart.forEach(function(element){ 
+            const name = element.querySelector(".summary__name").textContent;
+            console.log(name);
+            if(element.name === element.title.name) {
+                element.remove();}
+            })
+    } 
+}
+
 // ZAMAWIANIE WYCIECZEK
 
 submitBtn.addEventListener("click", validateOrderForm);
@@ -141,42 +160,42 @@ function validateOrderForm (e, form) {
     if (!emailField.value.includes('@')) {
         errors.push(emailField);
     } else {
-        changeBackBorderColor(emailField);
+        changeBackSettings(emailField);
     }
 
     if (nameField.value.length === 0) {
         errors.push(nameField);
     } else {
-        changeBackBorderColor(nameField);
+        changeBackSettings(nameField);
     }
 
     if (surnameField.value.length === 0) {
         errors.push(surnameField);
     
     } else {
-        changeBackBorderColor(surnameField);
+        changeBackSettings(surnameField);
     }
                   
     if(errors.length > 0) {
         e.preventDefault();
         errors.forEach(function(element) {
-        element.style.border = "2px solid red"
+        element.style.border = "2px solid red";
         })
     }
      
     if(errors.length === 0) {
         e.preventDefault();
-        if(!totalSumSpan.textContent === " ") {
+        e.stoppropagation;
+        if(cart.length > 0) {
             alert("Dziękujemy za złożenie zamówienia o wartości" + " " + `${totalSumSpan.textContent}` + " " + "Szczegóły zamówienia zostały wysłane na adres e-mail: adres@wpisanywformularzu.pl");
         } else {
             alert("Jeszcze nie wybrales zadnej wycieczki. Zapoznaj sie z naszym katalogiem przez wgranie pliku");
-
         }
     }
 
 }
 
-function changeBackBorderColor(el) {
+function changeBackSettings(el) {
     el.style.border = "2px inset grey"
 }
 
