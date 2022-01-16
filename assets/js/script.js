@@ -113,11 +113,11 @@ function createBasketItem() {
                 newBasketItem.classList.add('summary__item--new');
                 newBasketItem.querySelector("img").setAttribute('title', `${item.title}`);
             }
-            else {newBasketItem.remove();
+            else {
+                newBasketItem.remove();
             }
     })
     totalSumSpan.textContent = getfinalTotal() + " " + "PLN";
-    console.log(titles);
 } 
 
 function convertNumber (num) {
@@ -159,14 +159,16 @@ function getfinalTotal() {
 
 // USUWANIE WYCIECZEK
 
-ulCart.addEventListener("click", removeExcursion);
+ulCart.addEventListener("click", removeBasketItem);
 
-function removeExcursion (e) {
+function removeBasketItem (e) {
     if (e.target.classList.contains('summary__btn-remove')) {
         for (let i = 0; i < cart.length; i += 1) 
             if (cart[i].title === e.target.title) {
-            cart.splice(cart[i], 1);
+            cart.splice(i, 1);
             e.target.parentElement.parentElement.remove();
+            console.log(cart);
+            console.log(e.target.title);
         }
         //  for (let i = 0; i < titles.length; i += 1)
             // if(titles[i] === e.target.title) {
