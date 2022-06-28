@@ -6,7 +6,7 @@
 }
 
 .content__wrapper {
-    background-image: url(../../Images/Main\ Foto.jpg);
+    background-image: url(./Main\ Foto.jpg);
     background-size: cover;
     background-repeat: no-repeat;
     min-height: 1000px;
