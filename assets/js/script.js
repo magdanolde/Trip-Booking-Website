@@ -9,7 +9,7 @@ const surnameField = document.querySelector("input[name=surname]");
 const emailField = document.querySelector("input[name=email]");
 const submitBtn = document.querySelector(".order__field-submit");
 const ulCart = document.querySelector(".panel__summary");
-const cart = [];
+cart = [];
 
 // LOADING EXCURSIONS
 
@@ -251,6 +251,8 @@ function validateOrderForm(e) {
       document.querySelector(".panel__order").reset();
       deleteBasket();
       totalSumSpan.textContent = " ";
+      cart = [];
+      console.log(cart);
     } else {
       alert("You haven't chosen any item yet. Please load our catalogue.");
     }
