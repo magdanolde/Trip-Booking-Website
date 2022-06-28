@@ -16,6 +16,8 @@ The goal of this task was to complete the project for a hypothetical client that
 
 ## :boom: PROJECT LIVE 
 
+https://magdanolde.github.io/Trip-Booking-Website/
+
 ## 💻 TECHNOLOGIES
 
 ![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white)
