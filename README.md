@@ -3,7 +3,7 @@
  
 The goal of this task was to complete the project for a hypothetical client that was left in the middle by another software developer. At the starting point, I had a HTML structure and very basic CSS styling.
 
-##  FEATURES & CHALLANGES ###
+## :dart: FEATURES & CHALLENGES ###
 
 * User has to be able upload CSV file with trip details.
 * Trips details have to be converted to be displayed to the user.
