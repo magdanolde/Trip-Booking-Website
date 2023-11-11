@@ -9,12 +9,12 @@
     background-image: url(./MainFoto.jpg);
     background-size: cover;
     background-repeat: no-repeat;
-    min-height: 1000px;
+    height: 100vh;
 }
 
 .content__cover {
     background-color: rgba(186, 186, 188, 0.4);
-    min-height: 1000px;
+    height: 100vh;
     z-index: 2;
 }
 
