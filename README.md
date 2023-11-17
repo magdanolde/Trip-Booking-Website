@@ -18,6 +18,8 @@ The goal of this task was to complete the project for a hypothetical client that
 
 https://magdanolde.github.io/Trip-Booking-Website/
 
+https://github.com/magdanolde/Trip-Booking-Website/issues/1#issue-1989302069
+
 ## 💻 TECHNOLOGIES
 
 ![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white)
