@@ -18,6 +18,8 @@ The goal of this task was to complete the project for a hypothetical client that
 
 https://magdanolde.github.io/Trip-Booking-Website/
 
+![Photo_Travel Agency](https://github.com/magdanolde/Trip-Booking-Website/assets/83141358/c0bb44e1-9d6f-4688-82c6-7e7ff269c0ed)
+
 
 ## 💻 TECHNOLOGIES
 
