@@ -18,7 +18,6 @@ The goal of this task was to complete the project for a hypothetical client that
 
 https://magdanolde.github.io/Trip-Booking-Website/
 
-https://github.com/magdanolde/Trip-Booking-Website/issues/2#issue-2000026321
 
 ## 💻 TECHNOLOGIES
 
